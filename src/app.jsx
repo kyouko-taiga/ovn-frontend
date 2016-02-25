@@ -1,6 +1,6 @@
-import react from 'React'
+import React from 'react'
 import {render} from 'react-dom'
-import {Router} from 'react-router'
+import {Router, browserHistory} from 'react-router'
 
 
 class App extends React.Component {
@@ -16,4 +16,4 @@ const routes = {
 }
 
 
-render(<Router routes={routes} />, document.getElementById('ovn-app'))
+render(<Router history={browserHistory} routes={routes} />, document.getElementById('ovn-app'))
