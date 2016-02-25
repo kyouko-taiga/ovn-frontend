@@ -1,0 +1,42 @@
+{
+    "name": "ovn-frontend",
+    "version": "0.0.1",
+    "author": "Dimitri Racordon",
+    "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kyouko-taiga/ovn-frontend.git"
+    },
+    "devDependencies": {
+        "babel-preset-es2015": "latest",
+        "babel-preset-stage-2": "latest",
+        "babel-preset-react": "latest",
+        "babelify": "latest",
+        "browserify": "latest",
+        "uglify-js": "latest",
+        "watchify": "latest"
+    },
+    "dependencies": {
+        "bluebird": "latest",
+        "flux": "latest",
+        "marked": "latest",
+        "object-assign": "latest",
+        "react": "~0.14.3",
+        "react-dom": "~0.14.3",
+        "react-router": "~2.0.0"
+    },
+    "babel": {
+        "presets": ["es2015", "stage-2", "react"]
+    },
+    "browserify": {
+        "transform": [
+            "babelify"
+        ]
+    },
+    "scripts": {
+        "clean": "rm -f public/build/*.js",
+        "build-js": "browserify src/app.jsx -o public/build/app.js -v -d",
+        "build-min-js": "browserify src/app.jsx | uglifyjs -cm > public/build/app.min.js",
+        "watch-js": "watchify src/app.jsx -o public/build/app.js -v -d"
+    }
+}
