@@ -25,7 +25,8 @@
         "object-assign": "latest",
         "react": "~0.14.3",
         "react-dom": "~0.14.3",
-        "react-router": "~2.0.0"
+        "react-router": "~2.0.0",
+        "react-bootstrap": "~0.28.3"
     },
     "babel": {
         "presets": ["es2015", "stage-2", "react"]

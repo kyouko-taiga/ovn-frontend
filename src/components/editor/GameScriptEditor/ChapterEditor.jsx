@@ -1,6 +1,12 @@
 import React from 'react'
+import {ListGroup} from 'react-bootstrap'
 
 import CollapsiblePanel from '../../common/CollapsiblePanel'
+
+import ChapterDialogItem from './ChapterDialogItem'
+import ChapterEventItem from './ChapterEventItem'
+import ChapterImageItem from './ChapterImageItem'
+import ChapterSoundItem from './ChapterSoundItem'
 
 
 export default class ChapterEditor extends React.Component {
@@ -31,8 +37,27 @@ export default class ChapterEditor extends React.Component {
                 heading="Chapter 1"
                 collapsed={this.state.collapsed}
             >
-                Game script goes here!
+                {this.renderChapterData()}
             </CollapsiblePanel>
         )
+    }
+
+    renderChapterData() {
+        const items = this.props.chapter.data.map((item, index) => {
+            switch (item.type) {
+            case 'dialog':
+                return <ChapterDialogItem key={index} dialog={item} />
+            case 'event':
+                return <ChapterEventItem key={index} event={item} />
+            case 'image':
+                return <ChapterImageItem key={index} image={item} />
+            case 'sound':
+                return <ChapterSoundItem key={index} sound={item} />
+            default:
+                return null
+            }
+        })
+
+        return <ListGroup>{items}</ListGroup>
     }
 }
