@@ -37,12 +37,12 @@
     },
     "scripts": {
         "clean": "rm -f public/build/*.js",
-        "build-js": "browserify src/app.jsx -o public/build/app.js -v -d",
+        "build-js": "browserify src/app.jsx --extension=.jsx -o public/build/app.js -v -d",
         "build-css": "node-sass assets/css/main.scss public/build/main.css",
         "build": "npm run build-js && npm run build-css",
-        "build-min-js": "browserify src/app.jsx | uglifyjs -cm > public/build/app.min.js",
+        "build-min-js": "browserify src/app.jsx --extension=.jsx | uglifyjs -cm > public/build/app.min.js",
         "build-min-css": "node-sass assets/css/main.scss | cleancss -o public/build/main.min.css",
         "build-min": "npm run build-min-js && npm run build-min-css",
-        "watch-js": "watchify src/app.jsx -o public/build/app.js -v -d"
+        "watch-js": "watchify src/app.jsx --extension=.jsx -o public/build/app.js -v -d"
     }
 }
