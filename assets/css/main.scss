@@ -1,1 +1,12 @@
 @import "../../vendor/bootstrap/stylesheets/bootstrap";
+
+
+body {
+    padding-top: 20px;
+}
+
+.ovn-panel-collapsible {
+    .panel-heading:hover {
+        cursor: pointer;
+    }
+}

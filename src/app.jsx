@@ -2,17 +2,22 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Router, browserHistory} from 'react-router'
 
+import EditorView from './views/EditorView'
+
 
 class App extends React.Component {
     render() {
-        return <div>Hello, World!</div>
+        return this.props.children
     }
 }
 
 
 const routes = {
     path: '/',
-    component: App
+    component: App,
+    indexRoute: {
+        component: EditorView
+    }
 }
 
 
