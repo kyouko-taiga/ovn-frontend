@@ -51,8 +51,18 @@ body {
     }
 }
 
+.ovn-scene-toolbar {
+    display: inline-block;
+}
+
 .ovn-scene-item {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
+
+    &:hover, &.ovn-active {
+        padding-left: 10px;
+        border-left: 5px solid !important;
+    }
 }

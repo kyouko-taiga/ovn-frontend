@@ -38,6 +38,24 @@ export default class SceneEditor extends React.Component {
                 collapsed={this.state.collapsed}
             >
                 {this.renderSceneData()}
+                <div className="panel-body">
+                    <div className="text-center">
+                        <ButtonToolbar className="ovn-scene-toolbar">
+                            <Button bsStyle="info">
+                                <i className="fa fa-fw fa-lg fa-comment" />
+                            </Button>
+                            <Button bsStyle="success">
+                                <i className="fa fa-fw fa-lg fa-music" />
+                            </Button>
+                            <Button bsStyle="danger">
+                                <i className="fa fa-fw fa-lg fa-picture-o" />
+                            </Button>
+                            <Button bsStyle="warning">
+                                <i className="fa fa-fw fa-lg fa-bolt" />
+                            </Button>
+                        </ButtonToolbar>
+                    </div>
+                </div>
             </CollapsiblePanel>
         )
     }
