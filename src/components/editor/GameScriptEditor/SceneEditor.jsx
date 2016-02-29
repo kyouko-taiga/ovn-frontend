@@ -1,12 +1,9 @@
 import React from 'react'
-import {ListGroup} from 'react-bootstrap'
+import {Button, ButtonToolbar, ListGroup} from 'react-bootstrap'
 
 import CollapsiblePanel from '../../common/CollapsiblePanel'
 
-import SceneDialogItem from './SceneDialogItem'
-import SceneEventItem from './SceneEventItem'
-import SceneImageItem from './SceneImageItem'
-import SceneSoundItem from './SceneSoundItem'
+import SceneItemContainer from './SceneItemContainer'
 
 
 export default class SceneEditor extends React.Component {
@@ -34,7 +31,7 @@ export default class SceneEditor extends React.Component {
             <CollapsiblePanel
                 onExpand={this.expand}
                 onCollapse={this.collapse}
-                heading="Scene 1"
+                heading={this.props.scene.title}
                 collapsed={this.state.collapsed}
             >
                 {this.renderSceneData()}
@@ -61,19 +58,8 @@ export default class SceneEditor extends React.Component {
     }
 
     renderSceneData() {
-        const items = this.props.scene.data.map((item, index) => {
-            switch (item.type) {
-            case 'dialog':
-                return <SceneDialogItem key={index} dialog={item} />
-            case 'event':
-                return <SceneEventItem key={index} event={item} />
-            case 'image':
-                return <SceneImageItem key={index} image={item} />
-            case 'sound':
-                return <SceneSoundItem key={index} sound={item} />
-            default:
-                return null
-            }
+        const items = this.props.scene.items.map((uid, index) => {
+            return <SceneItemContainer key={index} itemuid={uid} />
         })
 
         return <ListGroup>{items}</ListGroup>

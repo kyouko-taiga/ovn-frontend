@@ -11,7 +11,7 @@ export default class EditorView extends React.Component {
                 <Row>
                     <Col md={8}></Col>
                     <Col md={4}>
-                        <GameScriptEditor />
+                        <GameScriptEditor gameuid="game-0" />
                     </Col>
                 </Row>
             </Grid>
