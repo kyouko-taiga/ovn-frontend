@@ -39,19 +39,17 @@ const ITEMS = {
         scene_uid: 'game-0.scene-0',
         type: 'dialog',
         character: 'Karen',
-        text: [
-            "Midnight, on the bridge. Come alone.",
+        text: (
+            "Midnight, on the bridge. Come alone." +
             "I'll find her and bring her home, I promise."
-        ]
+        )
     },
     'game-0.scene-0.item-5': {
         uid: 'game-0.scene-0.item-5',
         scene_uid: 'game-0.scene-0',
         type: 'dialog',
         character: 'Tsukihi',
-        text: [
-            "Am I supposed to be scared now?"
-        ]
+        text: "Am I supposed to be scared now?"
     }
 }
 

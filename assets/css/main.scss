@@ -5,6 +5,10 @@ body {
     padding-top: 20px;
 }
 
+textarea {
+    resize: vertical;
+}
+
 .ovn-panel-collapsible {
     .panel-heading:hover {
         cursor: pointer;

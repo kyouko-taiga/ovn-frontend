@@ -58,8 +58,14 @@ export default class SceneEditor extends React.Component {
     }
 
     renderSceneData() {
-        const items = this.props.scene.items.map((uid, index) => {
-            return <SceneItemContainer key={index} itemuid={uid} />
+        const scene = this.props.scene
+        const items = scene.items.map((uid, index) => {
+            return (
+                <SceneItemContainer
+                    key={index}
+                    gameuid={scene.game_uid} sceneuid={scene.uid} itemuid={uid}
+                />
+            )
         })
 
         return <ListGroup>{items}</ListGroup>
