@@ -1,6 +1,8 @@
 import React from 'react'
 import {Button, ButtonToolbar, ListGroup} from 'react-bootstrap'
 
+import {createItem} from '../../../actions/sceneActions'
+
 import CollapsiblePanel from '../../common/CollapsiblePanel'
 
 import SceneItemContainer from './SceneItemContainer'
@@ -16,6 +18,8 @@ export default class SceneEditor extends React.Component {
 
         this.expand = this.expand.bind(this)
         this.collapse = this.collapse.bind(this)
+
+        this.createSceneDialog = this.createSceneDialog.bind(this)
     }
 
     expand() {
@@ -24,6 +28,15 @@ export default class SceneEditor extends React.Component {
 
     collapse() {
         this.setState({collapsed: true})
+    }
+
+    createSceneDialog() {
+        createItem({
+            scene_uid: this.props.scene.uid,
+            type: 'dialog',
+            character: null,
+            text: ''
+        })
     }
 
     render() {
@@ -38,7 +51,7 @@ export default class SceneEditor extends React.Component {
                 <div className="panel-body">
                     <div className="text-center">
                         <ButtonToolbar className="ovn-scene-toolbar">
-                            <Button bsStyle="info">
+                            <Button onClick={this.createSceneDialog} bsStyle="info">
                                 <i className="fa fa-fw fa-lg fa-comment" />
                             </Button>
                             <Button bsStyle="success">

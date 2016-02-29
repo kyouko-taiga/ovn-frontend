@@ -1,3 +1,5 @@
+import assign from 'object-assign'
+
 import BaseStore from './BaseStore'
 
 
@@ -70,6 +72,21 @@ class SceneItemStore extends BaseStore {
 
     _registerToActions(action) {
         switch(action.actionType) {
+        case 'CREATE_SCENE_ITEM':
+            this._items[action.data.uid] = action.data
+            this.emitChange()
+            break
+
+        case 'UPDATE_SCENE_ITEM':
+            assign(this._items[action.uid], action.data)
+            this.emitChange()
+            break
+
+        case 'DELETE_SCENE_ITEM':
+            delete this._items[action.uid]
+            this.emitChange()
+            break
+
         default:
             break
         }

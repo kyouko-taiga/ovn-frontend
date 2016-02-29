@@ -5,7 +5,9 @@ import {ListGroupItem} from 'react-bootstrap'
 export default class SceneDialogItem extends React.Component {
     render() {
         const {dialog, className, bsStyle='info', ...props} = this.props
-        const label = `${dialog.character} says: "${dialog.text}"`
+        const label = (dialog.character && dialog.text)
+            ? `${dialog.character} says: "${dialog.text}"`
+            : 'Scene dialog'
         const classes = (typeof className !== undefined)
             ? 'ovn-scene-item ' + className
             : 'ovn-scene-item'

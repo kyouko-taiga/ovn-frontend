@@ -1,4 +1,7 @@
+import AppDispatcher from '../dispatchers/AppDispatcher'
+
 import BaseStore from './BaseStore'
+import SceneItemStore from './SceneItemStore'
 
 
 const SCENES = {
@@ -30,6 +33,26 @@ class SceneStore extends BaseStore {
 
     _registerToActions(action) {
         switch(action.actionType) {
+        case 'CREATE_SCENE_ITEM':
+            // Wait for the SceneItemStore to finish updating.
+            AppDispatcher.waitFor([SceneItemStore.dispatchToken])
+
+            this._scenes[action.data.scene_uid].items.push(action.data.uid)
+            this.emitChange()
+            break
+
+        case 'DELETE_SCENE_ITEM':
+            for (let scene_uid in this._scenes) {
+                const index = this._scenes[scene_uid].items.indexOf(action.uid)
+                if (index != -1) {
+                    this._scenes[scene_uid].items.splice(index, 1)
+                    break
+                }
+            }
+
+            this.emitChange()
+            break
+
         default:
             break
         }
