@@ -11,7 +11,7 @@ export default class SceneSoundItem extends React.Component {
 
         return (
             <ListGroupItem bsStyle={bsStyle} className={classes} {...props}>
-                <i className="fa fa-fw fa-music" /> Play {this.props.sound.name}
+                <i className="fa fa-fw fa-music" /> Play {this.props.item.name}
             </ListGroupItem>
         )
     }

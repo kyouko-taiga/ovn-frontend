@@ -2,9 +2,10 @@ import React from 'react'
 import {Alert} from 'react-bootstrap'
 
 import StoreConnector from '../../../connectors/StoreConnector'
+import GameStore from '../../../stores/GameStore'
 import SceneItemStore from '../../../stores/SceneItemStore'
 
-import SceneDialogEditor from './SceneDialogEditor'
+import DialogEditor from './DialogEditor'
 
 
 export default StoreConnector(
@@ -21,13 +22,16 @@ export default StoreConnector(
 
             switch (this.props.item.type) {
             case 'dialog':
-                return <SceneDialogEditor dialog={this.props.item} />
+                return <DialogEditor game={this.props.game} dialog={this.props.item} />
             default:
                 return null
             }
         }
     },
 
-    // Handle SceneItemStore changes.
-    SceneItemStore, (props) => ({item: SceneItemStore.get(props.itemuid)})
+    // Handle GameStore and SceneItemStore changes.
+    [GameStore, SceneItemStore], (props) => ({
+        game: GameStore.get(props.gameuid),
+        item: SceneItemStore.get(props.itemuid)
+    })
 )

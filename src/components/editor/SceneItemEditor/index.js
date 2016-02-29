@@ -1,4 +1,4 @@
-import SceneItemEditor from './SceneItemEditor'
+import SceneItemContainer from './SceneItemContainer'
 
 
-export default SceneItemEditor
+export default SceneItemContainer

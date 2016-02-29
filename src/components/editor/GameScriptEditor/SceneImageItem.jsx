@@ -11,7 +11,7 @@ export default class SceneImageItem extends React.Component {
 
         return (
             <ListGroupItem bsStyle={bsStyle} className={classes} {...props}>
-                <i className="fa fa-fw fa-picture-o" /> Show {this.props.image.name}
+                <i className="fa fa-fw fa-picture-o" /> Show {this.props.item.name}
             </ListGroupItem>
         )
     }

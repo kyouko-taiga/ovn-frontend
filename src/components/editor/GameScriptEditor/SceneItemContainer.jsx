@@ -13,26 +13,37 @@ import SceneSoundItem from './SceneSoundItem'
 export default StoreConnector(
     class extends React.Component {
         render() {
-            let item
+            let ItemComponent
             switch (this.props.item.type) {
             case 'dialog':
-                item = <SceneDialogItem dialog={this.props.item} />
+                ItemComponent = SceneDialogItem
                 break
             case 'event':
-                item = <SceneEventItem event={this.props.item} />
+                ItemComponent = SceneEventItem
                 break
             case 'image':
-                item = <SceneImageItem image={this.props.item} />
+                ItemComponent = SceneImageItem
                 break
             case 'sound':
-                item = <SceneSoundItem sound={this.props.item} />
+                ItemComponent = SceneSoundItem
                 break
             default:
-                return null
+                throw new Error(`Unknown scene item type: '${this.props.item.type}'.`)
             }
 
-            const to = `editor/${this.props.gameuid}/${this.props.sceneuid}/${this.props.itemuid}`
-            return <LinkContainer to={to}>{item}</LinkContainer>
+            const gameuid = this.props.game.uid
+            const sceneuid = this.props.scene.uid
+            const href = `editor/${gameuid}/${sceneuid}/${this.props.itemuid}`
+
+            return (
+                <LinkContainer to={href}>
+                    <ItemComponent
+                        game={this.props.game}
+                        scene={this.props.scene}
+                        item={this.props.item}
+                    />
+                </LinkContainer>
+            )
         }
     },
 

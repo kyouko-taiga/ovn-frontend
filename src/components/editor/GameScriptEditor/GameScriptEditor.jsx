@@ -11,7 +11,7 @@ export default StoreConnector(
     class extends React.Component {
         render() {
             const scenes = this.props.game.scenes.map((uid, index) => {
-                return <SceneContainer key={index} sceneuid={uid} />
+                return <SceneContainer key={index} game={this.props.game} sceneuid={uid} />
             })
 
             return (

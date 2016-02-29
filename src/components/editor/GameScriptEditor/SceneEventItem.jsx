@@ -18,9 +18,9 @@ export default class SceneEventItem extends React.Component {
     }
 
     makeLabel() {
-        switch (this.props.event.action) {
+        switch (this.props.item.action) {
         case 'add character':
-            return `Add ${this.props.event.character.name}`
+            return `Add ${this.props.item.character.name}`
         default:
             return 'Event'
         }

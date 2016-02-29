@@ -9,7 +9,7 @@ import SceneEditor from './SceneEditor'
 export default StoreConnector(
     class extends React.Component {
         render() {
-            return <SceneEditor scene={this.props.scene} />
+            return <SceneEditor game={this.props.game} scene={this.props.scene} />
         }
     },
 

@@ -11,7 +11,10 @@ export default class SceneItemEditorView extends React.Component {
             <Grid>
                 <Row>
                     <Col md={8}>
-                        <SceneItemEditor itemuid={this.props.params.itemuid} />
+                        <SceneItemEditor
+                            gameuid={this.props.params.gameuid}
+                            itemuid={this.props.params.itemuid}
+                        />
                     </Col>
                     <Col md={4}>
                         <GameScriptEditor

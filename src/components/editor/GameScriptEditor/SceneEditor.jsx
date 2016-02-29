@@ -47,7 +47,7 @@ export default class SceneEditor extends React.Component {
                 heading={this.props.scene.title}
                 collapsed={this.state.collapsed}
             >
-                {this.renderSceneData()}
+                {this.renderSceneItems()}
                 <div className="panel-body">
                     <div className="text-center">
                         <ButtonToolbar className="ovn-scene-toolbar">
@@ -70,13 +70,12 @@ export default class SceneEditor extends React.Component {
         )
     }
 
-    renderSceneData() {
-        const scene = this.props.scene
-        const items = scene.items.map((uid, index) => {
+    renderSceneItems() {
+        const items = this.props.scene.items.map((uid, index) => {
             return (
                 <SceneItemContainer
                     key={index}
-                    gameuid={scene.game_uid} sceneuid={scene.uid} itemuid={uid}
+                    game={this.props.game} scene={this.props.scene} itemuid={uid}
                 />
             )
         })

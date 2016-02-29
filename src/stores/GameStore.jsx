@@ -4,6 +4,9 @@ import BaseStore from './BaseStore'
 const GAMES = {
     'game-0': {
         uid: 'game-0',
+        resources: {
+            characters: ['tsukihi', 'karen']
+        },
         scenes: ['game-0.scene-0']
     }
 }

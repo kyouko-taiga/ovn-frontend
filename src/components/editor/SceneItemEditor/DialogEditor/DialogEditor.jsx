@@ -1,10 +1,10 @@
 import React from 'react'
 import {Panel, Input, ButtonToolbar, Button} from 'react-bootstrap'
 
-import {updateItem, deleteItem} from '../../../actions/sceneActions'
+import {updateItem, deleteItem} from '../../../../actions/sceneActions'
 
 
-export default class SceneDialogItem extends React.Component {
+export default class DialogEditor extends React.Component {
     constructor(props) {
         super(props)
 
@@ -81,6 +81,10 @@ export default class SceneDialogItem extends React.Component {
     }
 
     render() {
+        const characterOptions = this.props.characterOptions.map((character, index) => {
+            return <option key={index} value={character.uid}>{character.name}</option>
+        })
+
         const character = this.state.character || this.props.dialog.character
         const text = this.state.text || this.props.dialog.text
 
@@ -93,8 +97,7 @@ export default class SceneDialogItem extends React.Component {
                         type="select" label="Character"
                         value={character}
                     >
-                        <option value="Tsukihi">Tsukihi</option>
-                        <option value="Karen">Karen</option>
+                        {characterOptions}
                     </Input>
                     <Input
                         onChange={this.handleTextChange}

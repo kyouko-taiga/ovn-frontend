@@ -22,7 +22,7 @@ const ITEMS = {
         type: 'event',
         action: 'add character',
         character: {
-            name: 'Karen',
+            uid: 'karen',
             state: 'normal'
         }
     },
@@ -32,7 +32,7 @@ const ITEMS = {
         type: 'event',
         action: 'add character',
         character: {
-            name: 'Tsukihi',
+            uid: 'tsukihi',
             state: 'normal'
         }
     },
@@ -40,7 +40,7 @@ const ITEMS = {
         uid: 'game-0.scene-0.item-4',
         scene_uid: 'game-0.scene-0',
         type: 'dialog',
-        character: 'Karen',
+        character: 'karen',
         text: (
             "Midnight, on the bridge. Come alone." +
             "I'll find her and bring her home, I promise."
@@ -50,7 +50,7 @@ const ITEMS = {
         uid: 'game-0.scene-0.item-5',
         scene_uid: 'game-0.scene-0',
         type: 'dialog',
-        character: 'Tsukihi',
+        character: 'tsukihi',
         text: "Am I supposed to be scared now?"
     }
 }
