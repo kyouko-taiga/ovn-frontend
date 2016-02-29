@@ -5,7 +5,7 @@ import StoreConnector from '../../../connectors/StoreConnector'
 import SceneItemStore from '../../../stores/SceneItemStore'
 
 import SceneDialogItem from './SceneDialogItem'
-import SceneEventItem from './SceneEventItem'
+import SceneCharacterItem from './SceneCharacterItem'
 import SceneImageItem from './SceneImageItem'
 import SceneSoundItem from './SceneSoundItem'
 
@@ -18,14 +18,14 @@ export default StoreConnector(
             case 'dialog':
                 ItemComponent = SceneDialogItem
                 break
-            case 'event':
-                ItemComponent = SceneEventItem
-                break
             case 'image':
                 ItemComponent = SceneImageItem
                 break
             case 'sound':
                 ItemComponent = SceneSoundItem
+                break
+            case 'character':
+                ItemComponent = SceneCharacterItem
                 break
             default:
                 throw new Error(`Unknown scene item type: '${this.props.item.type}'.`)

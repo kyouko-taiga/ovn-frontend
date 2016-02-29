@@ -61,7 +61,7 @@ export default class SceneEditor extends React.Component {
                                 <i className="fa fa-fw fa-lg fa-picture-o" />
                             </Button>
                             <Button bsStyle="warning">
-                                <i className="fa fa-fw fa-lg fa-bolt" />
+                                <i className="fa fa-fw fa-lg fa-user" />
                             </Button>
                         </ButtonToolbar>
                     </div>

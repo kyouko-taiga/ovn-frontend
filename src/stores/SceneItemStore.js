@@ -19,8 +19,10 @@ const ITEMS = {
     'game-0.scene-0.item-2': {
         uid: 'game-0.scene-0.item-2',
         scene_uid: 'game-0.scene-0',
-        type: 'event',
-        action: 'add character',
+        type: 'character',
+        action: {
+            type: 'show'
+        },
         character: {
             uid: 'karen',
             state: 'normal'
@@ -29,8 +31,10 @@ const ITEMS = {
     'game-0.scene-0.item-3': {
         uid: 'game-0.scene-0.item-3',
         scene_uid: 'game-0.scene-0',
-        type: 'event',
-        action: 'add character',
+        type: 'character',
+        action: {
+            type: 'show'
+        },
         character: {
             uid: 'tsukihi',
             state: 'normal'

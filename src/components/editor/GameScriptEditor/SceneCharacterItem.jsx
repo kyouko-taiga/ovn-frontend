@@ -2,7 +2,7 @@ import React from 'react'
 import {ListGroupItem} from 'react-bootstrap'
 
 
-export default class SceneEventItem extends React.Component {
+export default class SceneCharacterItem extends React.Component {
     render() {
         const {dialog, className, bsStyle='warning', ...props} = this.props
         const label = this.makeLabel()
@@ -22,7 +22,7 @@ export default class SceneEventItem extends React.Component {
         case 'add character':
             return `Add ${this.props.item.character.name}`
         default:
-            return 'Event'
+            return 'Character action'
         }
     }
 }
