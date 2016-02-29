@@ -10,17 +10,14 @@ export default StoreConnector(
     class extends React.Component {
         render() {
             return (
-                <DialogEditor
-                    characterOptions={this.props.characters}
-                    dialog={this.props.dialog}
-                />
+                <DialogEditor {...this.props} />
             )
         }
     },
 
     // Handle CharacterStore changes.
     CharacterStore, (props) => ({
-        characters: CharacterStore
+        characterOptions: CharacterStore
             .all()
             .filter((character) => (character.game_uid == props.game.uid))
     })

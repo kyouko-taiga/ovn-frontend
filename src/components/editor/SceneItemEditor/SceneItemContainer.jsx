@@ -5,6 +5,7 @@ import StoreConnector from '../../../connectors/StoreConnector'
 import GameStore from '../../../stores/GameStore'
 import SceneItemStore from '../../../stores/SceneItemStore'
 
+import CharacterActionEditor from './CharacterActionEditor'
 import DialogEditor from './DialogEditor'
 
 
@@ -23,8 +24,10 @@ export default StoreConnector(
             switch (this.props.item.type) {
             case 'dialog':
                 return <DialogEditor game={this.props.game} dialog={this.props.item} />
+            case 'character':
+                return <CharacterActionEditor game={this.props.game} event={this.props.item} />
             default:
-                return null
+                throw new Error(`Unknown scene item type: '${this.props.item.type}'.`)
             }
         }
     },

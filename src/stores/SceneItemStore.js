@@ -20,25 +20,19 @@ const ITEMS = {
         uid: 'game-0.scene-0.item-2',
         scene_uid: 'game-0.scene-0',
         type: 'character',
-        action: {
-            type: 'show'
-        },
-        character: {
-            uid: 'karen',
-            state: 'normal'
-        }
+        action: 'show',
+        character: 'karen',
+        state: 'default',
+        position: 'right'
     },
     'game-0.scene-0.item-3': {
         uid: 'game-0.scene-0.item-3',
         scene_uid: 'game-0.scene-0',
         type: 'character',
-        action: {
-            type: 'show'
-        },
-        character: {
-            uid: 'tsukihi',
-            state: 'normal'
-        }
+        action: 'show',
+        character: 'tsukihi',
+        state: 'default',
+        position: 'left'
     },
     'game-0.scene-0.item-4': {
         uid: 'game-0.scene-0.item-4',

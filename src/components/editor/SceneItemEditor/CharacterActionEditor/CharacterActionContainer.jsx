@@ -3,18 +3,22 @@ import React from 'react'
 import StoreConnector from '../../../../connectors/StoreConnector'
 import CharacterStore from '../../../../stores/CharacterStore'
 
-import CharacterItem from './CharacterItem'
+import CharacterActionEditor from './CharacterActionEditor'
 
 
 export default StoreConnector(
     class extends React.Component {
         render() {
-            return <CharacterItem {...this.props} />
+            return (
+                <CharacterActionEditor {...this.props} />
+            )
         }
     },
 
     // Handle CharacterStore changes.
     CharacterStore, (props) => ({
-        character: CharacterStore.get(props.item.character)
+        characterOptions: CharacterStore
+            .all()
+            .filter((character) => (character.game_uid == props.game.uid))
     })
 )

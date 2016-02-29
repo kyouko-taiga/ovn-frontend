@@ -93,8 +93,7 @@ export default class DialogEditor extends React.Component {
                 <form>
                     <Input
                         onChange={this.handleCharacterChange}
-                        ref="character"
-                        type="select" label="Character"
+                        ref="character" type="select" label="Character"
                         value={character}
                     >
                         {characterOptions}
@@ -105,6 +104,7 @@ export default class DialogEditor extends React.Component {
                         placeholder="Write the character's text here."
                         value={text}
                     />
+                    <hr />
                     <div className="clearfix">
                         <div className="pull-left">
                             <Button onClick={this.delete} bsStyle="danger">Delete</Button>

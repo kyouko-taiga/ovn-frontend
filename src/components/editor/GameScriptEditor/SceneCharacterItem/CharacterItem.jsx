@@ -19,11 +19,17 @@ export default class CharacterItem extends React.Component {
     }
 
     makeLabel() {
-        switch (this.props.item.action.type) {
+        if (this.props.item.character === null) {
+            return 'Character Action'
+        }
+
+        switch (this.props.item.action) {
         case 'show':
             return `Show ${this.props.character.name}`
+        case 'hide':
+            return `Hide ${this.props.character.name}`
         default:
-            throw new Error(`Unknown character event type: '${this.props.item.action.type}'.`)
+            throw new Error(`Unknown character action type: '${this.props.item.action}'.`)
         }
     }
 }

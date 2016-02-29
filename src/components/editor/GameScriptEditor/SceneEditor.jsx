@@ -19,7 +19,8 @@ export default class SceneEditor extends React.Component {
         this.expand = this.expand.bind(this)
         this.collapse = this.collapse.bind(this)
 
-        this.createSceneDialog = this.createSceneDialog.bind(this)
+        this.createDialog = this.createDialog.bind(this)
+        this.createCharacterAction = this.createCharacterAction.bind(this)
     }
 
     expand() {
@@ -30,12 +31,23 @@ export default class SceneEditor extends React.Component {
         this.setState({collapsed: true})
     }
 
-    createSceneDialog() {
+    createDialog() {
         createItem({
             scene_uid: this.props.scene.uid,
             type: 'dialog',
             character: null,
             text: ''
+        })
+    }
+
+    createCharacterAction() {
+        createItem({
+            scene_uid: this.props.scene.uid,
+            type: 'character',
+            action: 'show',
+            character: null,
+            state: 'default',
+            position: 'center'
         })
     }
 
@@ -51,7 +63,7 @@ export default class SceneEditor extends React.Component {
                 <div className="panel-body">
                     <div className="text-center">
                         <ButtonToolbar className="ovn-scene-toolbar">
-                            <Button onClick={this.createSceneDialog} bsStyle="info">
+                            <Button onClick={this.createDialog} bsStyle="info">
                                 <i className="fa fa-fw fa-lg fa-comment" />
                             </Button>
                             <Button bsStyle="success">
@@ -60,7 +72,7 @@ export default class SceneEditor extends React.Component {
                             <Button bsStyle="danger">
                                 <i className="fa fa-fw fa-lg fa-picture-o" />
                             </Button>
-                            <Button bsStyle="warning">
+                            <Button onClick={this.createCharacterAction} bsStyle="warning">
                                 <i className="fa fa-fw fa-lg fa-user" />
                             </Button>
                         </ButtonToolbar>
