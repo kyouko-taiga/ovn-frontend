@@ -1,4 +1,5 @@
 import React from 'react'
+import {LinkContainer} from 'react-router-bootstrap'
 
 import StoreConnector from '../../../connectors/StoreConnector'
 import SceneItemStore from '../../../stores/SceneItemStore'
@@ -12,18 +13,26 @@ import SceneSoundItem from './SceneSoundItem'
 export default StoreConnector(
     class extends React.Component {
         render() {
+            let item
             switch (this.props.item.type) {
             case 'dialog':
-                return <SceneDialogItem dialog={this.props.item} />
+                item = <SceneDialogItem dialog={this.props.item} />
+                break
             case 'event':
-                return <SceneEventItem event={this.props.item} />
+                item = <SceneEventItem event={this.props.item} />
+                break
             case 'image':
-                return <SceneImageItem image={this.props.item} />
+                item = <SceneImageItem image={this.props.item} />
+                break
             case 'sound':
-                return <SceneSoundItem sound={this.props.item} />
+                item = <SceneSoundItem sound={this.props.item} />
+                break
             default:
                 return null
             }
+
+            const to = `editor/${this.props.gameuid}/${this.props.sceneuid}/${this.props.itemuid}`
+            return <LinkContainer to={to}>{item}</LinkContainer>
         }
     },
 
