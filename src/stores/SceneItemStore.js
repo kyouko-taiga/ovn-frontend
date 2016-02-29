@@ -4,16 +4,19 @@ import BaseStore from './BaseStore'
 const ITEMS = {
     'game-0.scene-0.item-0': {
         uid: 'game-0.scene-0.item-0',
+        scene_uid: 'game-0.scene-0',
         type: 'image',
         name: 'Room background'
     },
     'game-0.scene-0.item-1': {
         uid: 'game-0.scene-0.item-1',
+        scene_uid: 'game-0.scene-0',
         type: 'sound',
         name: 'Room music'
     },
     'game-0.scene-0.item-2': {
         uid: 'game-0.scene-0.item-2',
+        scene_uid: 'game-0.scene-0',
         type: 'event',
         action: 'add character',
         character: {
@@ -23,6 +26,7 @@ const ITEMS = {
     },
     'game-0.scene-0.item-3': {
         uid: 'game-0.scene-0.item-3',
+        scene_uid: 'game-0.scene-0',
         type: 'event',
         action: 'add character',
         character: {
@@ -32,6 +36,7 @@ const ITEMS = {
     },
     'game-0.scene-0.item-4': {
         uid: 'game-0.scene-0.item-4',
+        scene_uid: 'game-0.scene-0',
         type: 'dialog',
         character: 'Karen',
         text: [
@@ -41,6 +46,7 @@ const ITEMS = {
     },
     'game-0.scene-0.item-5': {
         uid: 'game-0.scene-0.item-5',
+        scene_uid: 'game-0.scene-0',
         type: 'dialog',
         character: 'Tsukihi',
         text: [

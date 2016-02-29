@@ -4,6 +4,7 @@ import BaseStore from './BaseStore'
 const SCENES = {
     'game-0.scene-0': {
         uid: 'game-0.scene-0',
+        game_uid: 'game-0',
         title: 'Scene 1',
         items: [
             'game-0.scene-0.item-0', 'game-0.scene-0.item-1', 'game-0.scene-0.item-2',
