@@ -3,13 +3,13 @@ import {ListGroup} from 'react-bootstrap'
 
 import CollapsiblePanel from '../../common/CollapsiblePanel'
 
-import ChapterDialogItem from './ChapterDialogItem'
-import ChapterEventItem from './ChapterEventItem'
-import ChapterImageItem from './ChapterImageItem'
-import ChapterSoundItem from './ChapterSoundItem'
+import SceneDialogItem from './SceneDialogItem'
+import SceneEventItem from './SceneEventItem'
+import SceneImageItem from './SceneImageItem'
+import SceneSoundItem from './SceneSoundItem'
 
 
-export default class ChapterEditor extends React.Component {
+export default class SceneEditor extends React.Component {
     constructor(props) {
         super(props)
 
@@ -34,25 +34,25 @@ export default class ChapterEditor extends React.Component {
             <CollapsiblePanel
                 onExpand={this.expand}
                 onCollapse={this.collapse}
-                heading="Chapter 1"
+                heading="Scene 1"
                 collapsed={this.state.collapsed}
             >
-                {this.renderChapterData()}
+                {this.renderSceneData()}
             </CollapsiblePanel>
         )
     }
 
-    renderChapterData() {
-        const items = this.props.chapter.data.map((item, index) => {
+    renderSceneData() {
+        const items = this.props.scene.data.map((item, index) => {
             switch (item.type) {
             case 'dialog':
-                return <ChapterDialogItem key={index} dialog={item} />
+                return <SceneDialogItem key={index} dialog={item} />
             case 'event':
-                return <ChapterEventItem key={index} event={item} />
+                return <SceneEventItem key={index} event={item} />
             case 'image':
-                return <ChapterImageItem key={index} image={item} />
+                return <SceneImageItem key={index} image={item} />
             case 'sound':
-                return <ChapterSoundItem key={index} sound={item} />
+                return <SceneSoundItem key={index} sound={item} />
             default:
                 return null
             }

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import ChapterEditor from './ChapterEditor'
+import SceneEditor from './SceneEditor'
 
 
-const CHAPTER_INSTANCE = {
-    title: 'Chapter 1',
+const SCENE_INSTANCE = {
+    title: 'Scene 1',
     data: [
         {
             type: 'image',
@@ -49,16 +49,16 @@ const CHAPTER_INSTANCE = {
 }
 
 
-export default class ChapterContainer extends React.Component {
+export default class SceneContainer extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            chapter: CHAPTER_INSTANCE
+            scene: SCENE_INSTANCE
         }
     }
 
     render() {
-        return <ChapterEditor chapter={this.state.chapter} />
+        return <SceneEditor scene={this.state.scene} />
     }
 }
