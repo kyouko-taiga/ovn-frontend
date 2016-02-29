@@ -5,10 +5,12 @@ import AppDispatcher from '../dispatchers/AppDispatcher'
 
 
 export function createItem(data) {
+    const uid = uuid.v4()
     AppDispatcher.dispatch({
         actionType: 'CREATE_SCENE_ITEM',
-        data: assign(data, {uid: uuid.v4()})
+        data: assign(data, {uid: uid})
     })
+    return uid
 }
 
 

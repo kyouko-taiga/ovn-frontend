@@ -32,16 +32,19 @@ export default class SceneEditor extends React.Component {
     }
 
     createDialog() {
-        createItem({
+        const uid = createItem({
             scene_uid: this.props.scene.uid,
             type: 'dialog',
             character: null,
             text: ''
         })
+
+        // Navigate to the freshly created item.
+        this.context.router.push(`/editor/${this.props.game.uid}/${this.props.scene.uid}/${uid}`)
     }
 
     createCharacterAction() {
-        createItem({
+        const uid = createItem({
             scene_uid: this.props.scene.uid,
             type: 'character',
             action: 'show',
@@ -49,6 +52,9 @@ export default class SceneEditor extends React.Component {
             state: 'default',
             position: 'center'
         })
+
+        // Navigate to the freshly created item.
+        this.context.router.push(`/editor/${this.props.game.uid}/${this.props.scene.uid}/${uid}`)
     }
 
     render() {
@@ -94,4 +100,8 @@ export default class SceneEditor extends React.Component {
 
         return <ListGroup>{items}</ListGroup>
     }
+}
+
+SceneEditor.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
