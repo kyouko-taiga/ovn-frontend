@@ -2,15 +2,19 @@ import BaseStore from './BaseStore'
 
 
 const SOUNDS = {
-    'room.ogg': {
-        uid: 'room.ogg',
+    'room.mp3': {
+        uid: 'room.mp3',
         name: 'Room music',
-        url: '/resources/common/room.ogg'
+        urls: ['/resources/sounds/common/room.mp3'],
+        duration: 78,
+        tags: ['Background', 'Indoor']
     },
-    'garden.ogg': {
-        uid: 'garden.ogg',
-        name: 'Room music',
-        url: '/resources/common/garden.ogg'
+    'garden.mp3': {
+        uid: 'garden.mp3',
+        name: 'Garden music',
+        urls: ['/resources/sounds/common/garden.mp3'],
+        duration: 68,
+        tags: ['Background', 'Outdoor']
     }
 }
 
@@ -27,6 +31,14 @@ class SoundStore extends BaseStore {
         return this._sounds.hasOwnProperty(uid)
             ? this._sounds[uid]
             : null
+    }
+
+    all() {
+        let rv = []
+        for (let uid in this._sounds) {
+            rv.push(this._sounds[uid])
+        }
+        return rv
     }
 
     _registerToActions(action) {

@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "bluebird": "latest",
+        "craftyjs": "latest",
         "flux": "latest",
         "marked": "latest",
         "node-uuid": "latest",

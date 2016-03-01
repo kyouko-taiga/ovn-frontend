@@ -70,3 +70,23 @@ textarea {
         border-left: 5px solid !important;
     }
 }
+
+.ovn-media-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    padding: 5px 0;
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: inset 0px 50px 100px -50px #fff;
+
+    &.ovn-sound {
+        background-color: $brand-success;
+    }
+}
+
+.ovn-sound-row:hover {
+    cursor: pointer;
+}
