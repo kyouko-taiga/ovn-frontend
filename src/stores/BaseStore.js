@@ -47,4 +47,8 @@ export default class BaseStore extends EventEmitter {
             return this._maxListeners
         }
     }
+
+    get defaultMaxListeners() {
+        return EventEmitter.defaultMaxListeners
+    }
 }

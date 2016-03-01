@@ -31,23 +31,25 @@ export default (ComposedComponent, stores, storesHandler) => class extends React
     }
 
     componentDidMount() {
-        if (stores instanceof Array) {
-            stores.map((store) => {
-                store.addChangeListener(this.handleStoreChange)
-            })
-        } else {
-            stores.addChangeListener(this.handleStoreChange)
-        }
+        let stores_ = (stores instanceof Array)
+            ? stores
+            : [stores]
+
+        stores_.map((store) => {
+            store.setMaxListeners(store.getMaxListeners() + 1)
+            store.addChangeListener(this.handleStoreChange)
+        })
     }
 
     componentWillUnmount() {
-        if (stores instanceof Array) {
-            stores.map((store) => {
-                store.removeChangeListener(this.handleStoreChange)
-            })
-        } else {
-            stores.removeChangeListener(this.handleStoreChange)
-        }
+        let stores_ = (stores instanceof Array)
+            ? stores
+            : [stores]
+
+        stores_.map((store) => {
+            store.removeChangeListener(this.handleStoreChange)
+            store.setMaxListeners(Math.max(store.getMaxListeners() - 1, store.defaultMaxListeners))
+        })
     }
 
     componentWillReceiveProps(props) {
