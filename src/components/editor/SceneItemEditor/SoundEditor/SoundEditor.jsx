@@ -3,7 +3,7 @@ import {Row, Col, Panel, Input, ButtonToolbar, Button} from 'react-bootstrap'
 
 import {updateItem, deleteItem} from '../../../../actions/sceneActions'
 
-import SoundMedia from './SoundMedia'
+import SoundPlayer from './SoundPlayer'
 
 
 // function intersperse(arr, sep) {
@@ -120,6 +120,7 @@ export default class SoundEditor extends React.Component {
                             </div>
                             <div className="media-body">
                                 <div>
+                                    <SoundPlayer sound={this.props.sound} />
                                     <strong>{this.props.sound.name}</strong>
                                     {' '}
                                     <a onClick={this.handleShowSelector} href="#">(change)</a>
