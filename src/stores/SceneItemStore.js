@@ -14,7 +14,7 @@ const ITEMS = {
         uid: 'game-0.scene-0.item-1',
         scene_uid: 'game-0.scene-0',
         type: 'sound',
-        name: 'Room music'
+        sound: 'room.ogg'
     },
     'game-0.scene-0.item-2': {
         uid: 'game-0.scene-0.item-2',

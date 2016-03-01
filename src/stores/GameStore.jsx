@@ -7,7 +7,8 @@ const GAMES = {
         resources: {
             characters: ['tsukihi', 'karen']
         },
-        scenes: ['game-0.scene-0']
+        scenes: ['game-0.scene-0'],
+        sounds: ['room.ogg', 'garden.ogg']
     }
 }
 
