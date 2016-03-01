@@ -4,12 +4,6 @@ import BaseStore from './BaseStore'
 
 
 const ITEMS = {
-    'game-0.scene-0.item-0': {
-        uid: 'game-0.scene-0.item-0',
-        scene_uid: 'game-0.scene-0',
-        type: 'image',
-        name: 'Room background'
-    },
     'game-0.scene-0.item-1': {
         uid: 'game-0.scene-0.item-1',
         scene_uid: 'game-0.scene-0',

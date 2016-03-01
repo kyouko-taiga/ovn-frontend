@@ -89,9 +89,6 @@ export default class SceneEditor extends React.Component {
                             <Button onClick={this.createSound} bsStyle="success">
                                 <i className="fa fa-fw fa-lg fa-music" />
                             </Button>
-                            <Button bsStyle="danger">
-                                <i className="fa fa-fw fa-lg fa-picture-o" />
-                            </Button>
                             <Button onClick={this.createCharacterAction} bsStyle="warning">
                                 <i className="fa fa-fw fa-lg fa-user" />
                             </Button>
