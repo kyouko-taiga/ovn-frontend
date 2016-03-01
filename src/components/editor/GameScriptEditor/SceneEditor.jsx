@@ -6,6 +6,7 @@ import {createItem} from '../../../actions/sceneActions'
 import CollapsiblePanel from '../../common/CollapsiblePanel'
 
 import SceneItemContainer from './SceneItemContainer'
+import ScenePreview from './ScenePreview'
 
 
 export default class SceneEditor extends React.Component {
@@ -79,6 +80,9 @@ export default class SceneEditor extends React.Component {
                 heading={this.props.scene.title}
                 collapsed={this.state.collapsed}
             >
+                <div className="panel-body">
+                    <ScenePreview scene={this.props.scene} />
+                </div>
                 {this.renderSceneItems()}
                 <div className="panel-body">
                     <div className="text-center">

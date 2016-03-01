@@ -9,6 +9,7 @@ const SCENES = {
         uid: 'game-0.scene-0',
         game_uid: 'game-0',
         title: 'Scene 1',
+        background: 'room.jpg',
         items: [
             'game-0.scene-0.item-1', 'game-0.scene-0.item-2',
             'game-0.scene-0.item-3', 'game-0.scene-0.item-4', 'game-0.scene-0.item-5'
