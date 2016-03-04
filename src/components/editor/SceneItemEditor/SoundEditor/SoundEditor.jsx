@@ -105,8 +105,8 @@ export default class SoundEditor extends React.Component {
     render() {
         const minutes = parseInt(this.props.sound.duration / 60)
         const seconds = this.props.sound.duration % 60
-        const volume = this.state.volume | this.props.event.volume
-        const repeat = this.state.repeat | this.props.event.repeat
+        const volume = this.state.volume || this.props.event.volume
+        const repeat = this.state.repeat || this.props.event.repeat
 
         return (
             <Panel header="Sound editor">
