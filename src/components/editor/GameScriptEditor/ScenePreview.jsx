@@ -7,21 +7,16 @@ import ImageStore from '../../../stores/ImageStore'
 
 export default StoreConnector(
     class extends React.Component {
-        constructor(props) {
-            super(props)
-
-            this.state = {
-                name: null,
-                background: null
-            }
-        }
-
         render() {
-            return (
-                <div className="ovn-scene-preview">
-                    <img className="ovn-scene-background" src={this.props.background.urls[0]} />
-                </div>
-            )
+            if (this.props.background) {
+                return (
+                    <div className="ovn-scene-preview">
+                        <img className="ovn-scene-background" src={this.props.background.urls[0]} />
+                    </div>
+                )
+            } else {
+                return null
+            }
         }
     },
 
