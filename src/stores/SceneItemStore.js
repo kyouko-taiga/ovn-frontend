@@ -1,6 +1,9 @@
 import assign from 'object-assign'
 
+import AppDispatcher from '../dispatchers/AppDispatcher'
+
 import BaseStore from './BaseStore'
+import SceneStore from './SceneStore'
 
 
 const ITEMS = {
@@ -77,6 +80,10 @@ class SceneItemStore extends BaseStore {
             break
 
         case 'DELETE_SCENE_ITEM':
+            // Wait for the SceneStore to finish updating, or the components
+            // that list scene items from their parent scene might fail.
+            AppDispatcher.waitFor([SceneStore.dispatchToken])
+
             delete this._items[action.uid]
             this.emitChange()
             break
