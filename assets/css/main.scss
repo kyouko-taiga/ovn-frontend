@@ -55,7 +55,7 @@ textarea {
     }
 }
 
-.ovn-scene-preview img.ovn-scene-background {
+img.ovn-scene-background {
     width: 100%;
     border-radius: 2px;
 }
@@ -94,4 +94,21 @@ textarea {
 
 .ovn-sound-row:hover {
     cursor: pointer;
+}
+
+img.ovn-scene-background-input {
+    width: 100%;
+    border-radius: 2px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.ovn-image-selector img {
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+    }
 }

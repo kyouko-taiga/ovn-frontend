@@ -3,7 +3,8 @@ import {render} from 'react-dom'
 import {Router, browserHistory} from 'react-router'
 
 import EditorView from './views/EditorView'
-import SceneItemEditorView from './views/SceneItemEditorView'
+import SceneItemView from './views/SceneItemView'
+import SceneSettingsView from './views/SceneSettingsView'
 
 
 class App extends React.Component {
@@ -16,16 +17,17 @@ class App extends React.Component {
 const routes = {
     path: '/',
     component: App,
-    indexRoute: {
-        component: EditorView
-    },
     childRoutes: [{
-        path: '/editor/:gameuid',
+        path: 'editor/:gameuid',
+        component: EditorView,
         childRoutes: [{
             path: ':sceneuid',
             childRoutes: [{
-                path: ':itemuid',
-                component: SceneItemEditorView
+                path: 'items/:itemuid',
+                component: SceneItemView
+            },{
+                path: 'settings',
+                component: SceneSettingsView
             }]
         }]
     }]

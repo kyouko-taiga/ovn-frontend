@@ -7,11 +7,7 @@ import SceneEditor from './SceneEditor'
 
 
 export default StoreConnector(
-    class extends React.Component {
-        render() {
-            return <SceneEditor game={this.props.game} scene={this.props.scene} />
-        }
-    },
+    SceneEditor,
 
     // Handle SceneStore changes.
     SceneStore, (props) => ({scene: SceneStore.get(props.sceneuid)})

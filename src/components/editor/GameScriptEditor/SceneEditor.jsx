@@ -1,5 +1,6 @@
 import React from 'react'
 import {Button, ButtonToolbar, ListGroup} from 'react-bootstrap'
+import {LinkContainer} from 'react-router-bootstrap'
 
 import {createItem} from '../../../actions/sceneActions'
 
@@ -33,33 +34,36 @@ export default class SceneEditor extends React.Component {
         this.setState({collapsed: true})
     }
 
+    createSceneItem(item) {
+        // Create the new item.
+        const uid = createItem(item)
+
+        // Navigate to its view.
+        const url = `/editor/${this.props.game.uid}/${this.props.scene.uid}/items/${uid}`
+        this.context.router.push(url)
+    }
+
     createDialog() {
-        const uid = createItem({
+        this.createSceneItem({
             scene_uid: this.props.scene.uid,
             type: 'dialog',
             character: null,
             text: ''
         })
-
-        // Navigate to the freshly created item.
-        this.context.router.push(`/editor/${this.props.game.uid}/${this.props.scene.uid}/${uid}`)
     }
 
     createSound() {
-        const uid = createItem({
+        this.createSceneItem({
             scene_uid: this.props.scene.uid,
             type: 'sound',
             sound: null,
             volume: 100,
             repeat: false
         })
-
-        // Navigate to the freshly created item.
-        this.context.router.push(`/editor/${this.props.game.uid}/${this.props.scene.uid}/${uid}`)
     }
 
     createCharacterAction() {
-        const uid = createItem({
+        this.createSceneItem({
             scene_uid: this.props.scene.uid,
             type: 'character',
             action: 'show',
@@ -67,21 +71,21 @@ export default class SceneEditor extends React.Component {
             state: 'default',
             position: 'center'
         })
-
-        // Navigate to the freshly created item.
-        this.context.router.push(`/editor/${this.props.game.uid}/${this.props.scene.uid}/${uid}`)
     }
 
     render() {
+        const scene = this.props.scene
+        const settings_url = `/editor/${scene.game_uid}/${scene.uid}/settings`
+
         return (
             <CollapsiblePanel
                 onExpand={this.expand}
                 onCollapse={this.collapse}
-                heading={this.props.scene.title}
+                heading={scene.name}
                 collapsed={this.state.collapsed}
             >
                 <div className="panel-body">
-                    <ScenePreview scene={this.props.scene} />
+                    <ScenePreview scene={scene} />
                 </div>
                 {this.renderSceneItems()}
                 <div className="panel-body">
@@ -96,6 +100,11 @@ export default class SceneEditor extends React.Component {
                             <Button onClick={this.createCharacterAction} bsStyle="warning">
                                 <i className="fa fa-fw fa-lg fa-user" />
                             </Button>
+                            <LinkContainer to={settings_url}>
+                                <Button bsStyle="default">
+                                    <i className="fa fa-fw fa-lg fa-cog" />
+                                </Button>
+                            </LinkContainer>
                         </ButtonToolbar>
                     </div>
                 </div>

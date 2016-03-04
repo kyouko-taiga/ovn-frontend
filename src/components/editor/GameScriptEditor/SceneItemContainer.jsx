@@ -6,7 +6,6 @@ import SceneItemStore from '../../../stores/SceneItemStore'
 
 import SceneDialogItem from './SceneDialogItem'
 import SceneCharacterItem from './SceneCharacterItem'
-import SceneImageItem from './SceneImageItem'
 import SceneSoundItem from './SceneSoundItem'
 
 
@@ -17,9 +16,6 @@ export default StoreConnector(
             switch (this.props.item.type) {
             case 'dialog':
                 ItemComponent = SceneDialogItem
-                break
-            case 'image':
-                ItemComponent = SceneImageItem
                 break
             case 'sound':
                 ItemComponent = SceneSoundItem
@@ -33,7 +29,7 @@ export default StoreConnector(
 
             const gameuid = this.props.game.uid
             const sceneuid = this.props.scene.uid
-            const href = `editor/${gameuid}/${sceneuid}/${this.props.itemuid}`
+            const href = `editor/${gameuid}/${sceneuid}/items/${this.props.itemuid}`
 
             return (
                 <LinkContainer to={href}>

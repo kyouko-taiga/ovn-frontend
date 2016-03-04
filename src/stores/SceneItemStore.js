@@ -81,6 +81,15 @@ class SceneItemStore extends BaseStore {
             this.emitChange()
             break
 
+        case 'DELETE_SCENE':
+            for (let item_uid in this._items) {
+                if (this._items[item_uid].scene_uid == action.uid) {
+                    delete this._items[item_uid]
+                }
+            }
+            this.emitChange()
+            break
+
         default:
             break
         }

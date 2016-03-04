@@ -1,6 +1,9 @@
+import assign from 'object-assign'
+
 import AppDispatcher from '../dispatchers/AppDispatcher'
 
 import BaseStore from './BaseStore'
+import GameStore from './GameStore'
 import SceneItemStore from './SceneItemStore'
 
 
@@ -8,7 +11,7 @@ const SCENES = {
     'game-0.scene-0': {
         uid: 'game-0.scene-0',
         game_uid: 'game-0',
-        title: 'Scene 1',
+        name: 'Scene 1',
         background: 'room.jpg',
         items: [
             'game-0.scene-0.item-1', 'game-0.scene-0.item-2',
@@ -34,6 +37,25 @@ class SceneStore extends BaseStore {
 
     _registerToActions(action) {
         switch(action.actionType) {
+        case 'CREATE_SCENE':
+            this._scenes[action.data.uid] = action.data
+            this.emitChange()
+            break
+
+        case 'UPDATE_SCENE':
+            assign(this._scenes[action.uid], action.data)
+            this.emitChange()
+            break
+
+        case 'DELETE_SCENE':
+            // Wait for the GameStore to finish updating, or the components
+            // that list scenes from their parent game might fail.
+            AppDispatcher.waitFor([GameStore.dispatchToken])
+
+            delete this._scenes[action.uid]
+            this.emitChange()
+            break
+
         case 'CREATE_SCENE_ITEM':
             // Wait for the SceneItemStore to finish updating.
             AppDispatcher.waitFor([SceneItemStore.dispatchToken])

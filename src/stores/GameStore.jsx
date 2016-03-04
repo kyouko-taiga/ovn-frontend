@@ -1,4 +1,7 @@
+import AppDispatcher from '../dispatchers/AppDispatcher'
+
 import BaseStore from './BaseStore'
+import SceneStore from './SceneStore'
 
 
 const GAMES = {
@@ -29,6 +32,26 @@ class GameStore extends BaseStore {
 
     _registerToActions(action) {
         switch(action.actionType) {
+        case 'CREATE_SCENE':
+            // Wait for the SceneStore to finish updating.
+            AppDispatcher.waitFor([SceneStore.dispatchToken])
+
+            this._games[action.data.game_uid].scenes.push(action.data.uid)
+            this.emitChange()
+            break
+
+        case 'DELETE_SCENE':
+            for (let game_uid in this._games) {
+                const index = this._games[game_uid].scenes.indexOf(action.uid)
+                if (index != -1) {
+                    this._games[game_uid].scenes.splice(index, 1)
+                    break
+                }
+            }
+
+            this.emitChange()
+            break
+
         default:
             break
         }

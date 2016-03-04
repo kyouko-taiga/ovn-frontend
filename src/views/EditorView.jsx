@@ -9,9 +9,11 @@ export default class EditorView extends React.Component {
         return (
             <Grid>
                 <Row>
-                    <Col md={8}></Col>
+                    <Col md={8}>
+                        {this.props.children}
+                    </Col>
                     <Col md={4}>
-                        <GameScriptEditor gameuid="game-0" />
+                        <GameScriptEditor gameuid={this.props.params.gameuid} />
                     </Col>
                 </Row>
             </Grid>
